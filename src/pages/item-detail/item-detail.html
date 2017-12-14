@@ -2,7 +2,14 @@
 
   <ion-navbar>
     <ion-title>{{ item.nombre }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+
+  
 
 </ion-header>
 
@@ -16,7 +23,7 @@
         <ion-avatar item-start>
           <img [src]="item.profilePic" />
         </ion-avatar>
-        <h2>{{tema.descripcion}}</h2>
+        <p>{{tema.descripcion}}</p>
      
         <ion-note item-end *ngIf="item.note">{{tema.descripcion}}</ion-note>
       </button>

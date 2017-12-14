@@ -13,14 +13,14 @@ export class ItemCreatePage {
 
   isReadyToSave: boolean;
 
-  item: any;
+  tema: any;
 
   form: FormGroup;
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
     this.form = formBuilder.group({
       profilePic: [''],
-      name: ['', Validators.required],
+      descripcion: ['', Validators.required],
       about: ['']
     });
 

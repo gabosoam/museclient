@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
-
+import { AlertController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
 
@@ -26,7 +26,8 @@ export class SignupPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+    public translateService: TranslateService,
+    public alertCtrl: AlertController) {
 
     this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
       this.signupErrorString = value;
@@ -42,12 +43,12 @@ export class SignupPage {
    //   this.navCtrl.push(MainPage);
 
       // Unable to sign up
-      let toast = this.toastCtrl.create({
-        message: this.signupErrorString,
-        duration: 3000,
-        position: 'top'
+      let alert = this.alertCtrl.create({
+        title: 'Algo salió mal!',
+        subTitle: 'Por favor revisa la información de la cuenta e inténtalo de nuevo',
+        buttons: ['OK']
       });
-      toast.present();
+      alert.present();
     });
   }
 }
