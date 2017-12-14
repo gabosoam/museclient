@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
-import { Items } from '../../providers/providers';
+import {  Items} from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -13,7 +13,19 @@ export class ListMasterPage {
   currentItems: Item[];
 
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
+   let seq = this.items.query() ;
+
+   seq.subscribe((res: any) => {
+    this.currentItems = res;
+    // If the API returned a successful response, mark the user as logged in
+    if (res.status == 'success') {
+      console.log(res);
+     // this._loggedIn(res);
+    } else {
+    }
+  }, err => {
+    console.error('ERROR', err);
+  });
   }
 
   /**
@@ -47,6 +59,7 @@ export class ListMasterPage {
    * Navigate to the detail page for this item.
    */
   openItem(item: Item) {
+    console.log(item);
     this.navCtrl.push('ItemDetailPage', {
       item: item
     });

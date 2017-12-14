@@ -1,18 +1,34 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title>{{ item.nombre }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
-  </div>
+ 
 
-  <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
-  </div>
+  <ion-list>
+    <ion-item-sliding *ngFor="let tema of temas">
+      <button ion-item (click)="openItem(tema)">
+        <ion-avatar item-start>
+          <img [src]="item.profilePic" />
+        </ion-avatar>
+        <h2>{{tema.descripcion}}</h2>
+     
+        <ion-note item-end *ngIf="item.note">{{tema.descripcion}}</ion-note>
+      </button>
+
+      <ion-item-options>
+        <button ion-button color="success" (click)="deleteItem(item)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  
 </ion-content>
+

@@ -10,9 +10,12 @@ import { Items } from '../../providers/providers';
 })
 export class ItemDetailPage {
   item: any;
+  temas: any;
 
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
-    this.item = navParams.get('item') || items.defaultItem;
+    this.item = navParams.get('item');
+    this.temas = navParams.get('item').temas;
+    console.log(this.temas)
   }
 
 }

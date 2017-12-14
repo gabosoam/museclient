@@ -11,6 +11,8 @@ export class Api {
   constructor(public http: HttpClient) {
   }
 
+  
+
   get(endpoint: string, params?: any, reqOpts?: any) {
     if (!reqOpts) {
       reqOpts = {
@@ -26,7 +28,7 @@ export class Api {
       }
     }
 
-    return this.http.get(this.url + '/' + endpoint, reqOpts);
+    return this.http.get(this.url + '' + endpoint, reqOpts);
   }
 
   post(endpoint: string, body: any, reqOpts?: any) {
