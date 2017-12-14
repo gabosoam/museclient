@@ -1,8 +1,8 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
-
+    <!-- <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title> -->
+    <ion-title>Temas</ion-title>
   
   </ion-navbar>
 
@@ -14,7 +14,7 @@
     <ion-item-sliding *ngFor="let item of currentItems">
       <button ion-item (click)="openItem(item)">
         <ion-avatar item-start>
-          <img [src]="item.profilePic" />
+          <img src="http://musechat.herokuapp.com/imagentipo/{{item.id}}.png" />
         </ion-avatar>
         <h2>{{item.nombre}}</h2>
      

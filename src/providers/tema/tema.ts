@@ -24,6 +24,7 @@ export class TemaProvider {
   }
 
   add(tema: Tema) {
+    var ingreso = this.api.post('tema', tema);
     this.temas.push(tema);
   }
 
