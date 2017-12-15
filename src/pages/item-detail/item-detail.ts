@@ -4,6 +4,8 @@ import { Tema } from '../../models/tema';
 
 import { Items } from '../../providers/providers';
 import { TemaProvider } from '../../providers/providers';
+import { User } from '../../providers/providers';
+import { jsonpCallbackContext } from '@angular/common/http/src/module';
 @IonicPage()
 @Component({
   selector: 'page-item-detail',
@@ -13,7 +15,13 @@ export class ItemDetailPage {
   item: any;
   temas: any;
 
-  constructor(public navCtrl: NavController,public tema: TemaProvider, navParams: NavParams, items: Items, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController,
+    public tema: TemaProvider, 
+    navParams: NavParams, 
+    items: Items, 
+    public user: User,
+    public modalCtrl: ModalController) {
+
     this.item = navParams.get('item');
     this.temas = navParams.get('item').temas;
     console.log(this.temas)
@@ -23,8 +31,12 @@ export class ItemDetailPage {
     let addModal = this.modalCtrl.create('ItemCreatePage');
     addModal.onDidDismiss(tema => {
       if (tema) {
-        this.tema.add(tema);
-        alert(JSON.stringify(tema));
+        
+  
+       tema.tipoTema = this.item.id;
+       tema.usuario = this.user._user.id;
+       alert(JSON.stringify(tema))
+       this.tema.add(tema);
       }
     })
     addModal.present();

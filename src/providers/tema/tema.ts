@@ -24,8 +24,21 @@ export class TemaProvider {
   }
 
   add(tema: Tema) {
-    var ingreso = this.api.post('tema', tema);
-    this.temas.push(tema);
+    var seq = this.api.post('tema', tema).share();
+    seq.subscribe((res: any) => {
+      console.log(res);
+      // If the API returned a successful response, mark the user as logged in
+      if (res.status == 'success') {
+       console.log(res);
+        //this.temas.push(tema);
+      } else {
+      }
+    }, err => {
+      console.error('ERROR', err);
+    });
+
+    return seq;
+    
   }
 
   delete(tema: Tema) {

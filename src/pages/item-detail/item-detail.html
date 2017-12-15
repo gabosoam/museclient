@@ -21,9 +21,9 @@
     <ion-item-sliding *ngFor="let tema of temas">
       <button ion-item (click)="openItem(tema)">
         <ion-avatar item-start>
-          <img [src]="item.profilePic" />
+          <img [src]="tema.imagen" />
         </ion-avatar>
-        <p>{{tema.descripcion}}</p>
+        <h2>{{tema.descripcion}}</h2>
      
         <ion-note item-end *ngIf="item.note">{{tema.descripcion}}</ion-note>
       </button>
