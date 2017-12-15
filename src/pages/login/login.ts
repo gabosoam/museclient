@@ -46,6 +46,7 @@ export class LoginPage {
   doLogin() {
     this.presentLoading();
     this.user.login(this.account).subscribe((resp) => {
+      
       this.user._user = resp;
       this.navCtrl.push(MainPage);
     }, (err) => {
