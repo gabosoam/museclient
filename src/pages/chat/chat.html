@@ -5,8 +5,19 @@
 -->
 <ion-header>
   
-      <ion-navbar>
-          <ion-title>Chat</ion-title>
+    <ion-navbar>
+        <ion-title>Chat</ion-title>
+        <ion-buttons start>
+          <button ion-button (click)="cancel()">
+            <span color="primary" showWhen="ios">
+              Cancelar
+            </span>
+            <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-buttons end>
+        
+        </ion-buttons>
       </ion-navbar>
   
   </ion-header>
@@ -37,18 +48,12 @@
   
   </ion-content>
   
-  <ion-footer no-border >
+  <ion-footer  >
       <ion-grid class="input-wrap">
           <ion-row>
-              <ion-col col-2>
-                  <button ion-button clear icon-only item-right>
-                      <ion-icon name="md-happy"></ion-icon>
-                  </button>
-              </ion-col>
-              <ion-col col-8>
-                  <ion-textarea #chat_input
-                                placeholder="Text Input"
-                               >
+             
+              <ion-col col-10>
+                  <ion-textarea placeholder="Escribe un mensaje">
                   </ion-textarea>
               </ion-col>
               <ion-col col-2>

@@ -33,7 +33,7 @@
   </ion-list> -->
 
   <ion-card  *ngFor="let tema of temas">
-    <button ion-item (click)="openItem(tema)">
+    <button ion-item (click)="addItem()">
       <ion-item>
         <ion-avatar item-start>
           <img [src]="tema.usuario.imagen">
