@@ -28,9 +28,10 @@ export class ChatPage {
       this.tema = navParams.get('tema');
 
     
-this.scrollToBottom();
+
 
 this.cargarMensajes();
+this.scrollToBottom();
      
   }
 
