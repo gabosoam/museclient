@@ -19,23 +19,21 @@ export class TemaProvider {
   }
 
   query(params?: any) {
+
+    console.log(params)
     return this.api.get('tema', params);
     
   }
 
+  getOne(tipoTema){
+    return this.api.get('tema?tipoTema='+tipoTema+'&&sort=id%20DESC');
+  }
+
+ 
+
   add(tema: Tema) {
     var seq = this.api.post('tema', tema).share();
-    seq.subscribe((res: any) => {
-      console.log(res);
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-       console.log(res);
-        //this.temas.push(tema);
-      } else {
-      }
-    }, err => {
-      console.error('ERROR', err);
-    });
+    
 
     return seq;
     

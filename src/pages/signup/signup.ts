@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
 import { Camera } from '@ionic-native/camera';
+import { LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -36,7 +37,8 @@ export class SignupPage {
     public translateService: TranslateService,
     public alertCtrl: AlertController,
     public formBuilder: FormBuilder,
-    public camera: Camera) {
+    public camera: Camera,
+    public loadingCtrl: LoadingController) {
 
       this.form = formBuilder.group({
         imagen: [''],
@@ -55,7 +57,7 @@ export class SignupPage {
   }
 
   doSignup() {
-  
+    this.presentLoading();
     // Attempt to login in through our User service
     this.user.signup(this.form.value).subscribe((resp) => {
       this.navCtrl.push('LoginPage');
@@ -90,6 +92,14 @@ export class SignupPage {
     } else {
       this.fileInput.nativeElement.click();
     }
+  }
+
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Espere un momento...",
+     duration: 3000
+    });
+    loader.present();
   }
 
   processWebImage(event) {

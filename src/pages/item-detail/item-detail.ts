@@ -23,20 +23,41 @@ export class ItemDetailPage {
     public modalCtrl: ModalController) {
 
     this.item = navParams.get('item');
-    this.temas = navParams.get('item').temas;
-    console.log(this.temas)
+
+    this.cargar();
+
+
+    
+  }
+
+  cargar(){
+   
+    var seq = this.tema.getOne(this.item.id);
+    seq.subscribe((res: any) => {
+     console.log('nuevito')
+      console.log(res)
+     this.temas = res
+    }, err => {
+      console.error('ERROR', err);
+    });
   }
 
   addItem() {
     let addModal = this.modalCtrl.create('ItemCreatePage');
     addModal.onDidDismiss(tema => {
       if (tema) {
-        
+       
   
        tema.tipoTema = this.item.id;
        tema.usuario = this.user._user.id;
-       alert(JSON.stringify(tema))
-       this.tema.add(tema);
+    
+       let seq = this.tema.add(tema);
+       seq.subscribe((res: any) => {
+        this.cargar();
+      }, err => {
+        console.error('ERROR', err);
+      });
+       
       }
     })
     addModal.present();

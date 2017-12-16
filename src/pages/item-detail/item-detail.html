@@ -2,11 +2,7 @@
 
   <ion-navbar>
     <ion-title>{{ item.nombre }}</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
+  
   </ion-navbar>
 
   
@@ -17,11 +13,11 @@
 <ion-content>
  
 
-  <ion-list>
+  <!-- <ion-list>
     <ion-item-sliding *ngFor="let tema of temas">
       <button ion-item (click)="openItem(tema)">
         <ion-avatar item-start>
-          <img [src]="tema.imagen" />
+          <img [src]="tema.usuario.imagen" />
         </ion-avatar>
         <h2>{{tema.descripcion}}</h2>
      
@@ -34,7 +30,40 @@
         </button>
       </ion-item-options>
     </ion-item-sliding>
-  </ion-list>
+  </ion-list> -->
+
+  <ion-card  *ngFor="let tema of temas">
+    
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="tema.usuario.imagen">
+        </ion-avatar>
+        <h2>{{tema.usuario.username}}</h2>
+        <p>November 5, 1955</p>
+      </ion-item>
+    
+   
+      <ion-card-content>
+        <p>{{tema.descripcion}}</p>
+      </ion-card-content>
+    
+      <ion-row>
+
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>4 Comments</div>
+          </button>
+        </ion-col>
+       
+      </ion-row>
+    
+    </ion-card>
+
+    <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="addItem()"><ion-icon name="add" ></ion-icon></button>
+  
+    </ion-fab>
 
   
 </ion-content>
