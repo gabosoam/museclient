@@ -42,6 +42,13 @@ export class ItemDetailPage {
     });
   }
 
+  openItem(tema: Tema) {
+   
+    this.navCtrl.push('ChatPage', {
+      tema: tema
+    });
+  }
+
   addItem() {
     let addModal = this.modalCtrl.create('ItemCreatePage');
     addModal.onDidDismiss(tema => {

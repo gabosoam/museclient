@@ -33,13 +33,13 @@
   </ion-list> -->
 
   <ion-card  *ngFor="let tema of temas">
-    
+    <button ion-item (click)="openItem(tema)">
       <ion-item>
         <ion-avatar item-start>
           <img [src]="tema.usuario.imagen">
         </ion-avatar>
         <h2>{{tema.usuario.username}}</h2>
-        <p>November 5, 1955</p>
+        <p>{{tema.createdAt}}</p>
       </ion-item>
     
    
@@ -47,16 +47,7 @@
         <p>{{tema.descripcion}}</p>
       </ion-card-content>
     
-      <ion-row>
-
-        <ion-col>
-          <button ion-button icon-left clear small>
-            <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
-          </button>
-        </ion-col>
-       
-      </ion-row>
+    </button>
     
     </ion-card>
 
