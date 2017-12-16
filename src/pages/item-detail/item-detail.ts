@@ -50,7 +50,7 @@ export class ItemDetailPage {
   }
 
   addItem() {
-    let addModal = this.modalCtrl.create('ChatPage');
+    let addModal = this.modalCtrl.create('ItemCreatePage');
     addModal.onDidDismiss(tema => {
       if (tema) {
        
@@ -69,5 +69,7 @@ export class ItemDetailPage {
     })
     addModal.present();
   }
+
+
 
 }

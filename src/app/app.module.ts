@@ -15,6 +15,7 @@ import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { TemaProvider } from '../providers/tema/tema';
+import { ChatProvider } from '../providers/chat/chat';
 
 
 // The translate loader needs to know where to load i18n files
@@ -70,6 +71,7 @@ export function provideSettings(storage: Storage) {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     TemaProvider,
+    ChatProvider,
   ]
 })
 export class AppModule { }
