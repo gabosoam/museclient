@@ -27,6 +27,10 @@ export class ChatProvider {
     return this.api.get('mensaje?tema='+tema+'');
   }
 
+  enviarMensaje(mensaje){
+    return this.api.post('mensaje',mensaje);
+  }
+
   private socket;
   
     connect(): Rx.Subject<MessageEvent> {

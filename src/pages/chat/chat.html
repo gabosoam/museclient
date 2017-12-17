@@ -18,7 +18,8 @@
     
             <div 
                  class="message"
-                 [class.left]=" true "
+                 [class.left]=" mensaje.usuario.id != this.user._user.id.id "
+                 [class.right]=" mensaje.usuario.id == this.user._user.id.id "
                  *ngFor="let mensaje of mensajes">
                 <img class="user-img" [src]="mensaje.usuario.imagen"alt="" >
            
@@ -46,7 +47,8 @@
     <ion-row>
 
       <ion-col col-10>
-        <ion-textarea placeholder="Escribe un mensaje" >
+        <ion-textarea rows="1" placeholder="Escribe un mensaje" #chat_input [(ngModel)]="editorMsg" (keyup.enter)="sendMsg()">
+                               
         </ion-textarea>
       </ion-col>
       <ion-col col-2>
