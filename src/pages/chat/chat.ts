@@ -123,10 +123,10 @@ this.cargarMensajes();
 
   scrollToBottom() {
     setTimeout(() => {
-        if (!this.content.scrollToBottom) {
+        if (this.content.scrollToBottom) {
             this.content.scrollToBottom();
         }
-    }, 400)
+    }, 300)
 }
 
  
