@@ -5,11 +5,14 @@ import { User } from './user/user';
 import { TemaProvider } from '../providers/tema/tema';
 import { ChatProvider } from '../providers/chat/chat';
 
+import { SocketServiceProvider } from '../providers/socket-service/socket-service';
+
 export {
     Api,
     Items,
     Settings,
     User,
     TemaProvider,
+    SocketServiceProvider,
     ChatProvider
 };

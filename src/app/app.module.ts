@@ -8,6 +8,8 @@ import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import * as io from 'socket.io-client';
+
 
 import { Items } from '../providers/items/items';
 import { Settings } from '../providers/providers';
@@ -16,6 +18,8 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { TemaProvider } from '../providers/tema/tema';
 import { ChatProvider } from '../providers/chat/chat';
+import { SocketServiceProvider } from '../providers/socket-service/socket-service';
+import { ChatServiceProvider } from '../providers/chat-service/chat-service';
 
 
 // The translate loader needs to know where to load i18n files
@@ -72,6 +76,8 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     TemaProvider,
     ChatProvider,
+    SocketServiceProvider,
+    ChatServiceProvider,
   ]
 })
 export class AppModule { }
