@@ -45,14 +45,28 @@ this.cargarMensajes();
   }
 
   ngOnInit() {
+  
     this.connection = this.socketser.getMessages().subscribe(message => {
-     alert(message)
+      var cosa = JSON.stringify(message);
+     var data = JSON.parse(cosa);
+
+      if(this.tema.id == data.data.tema){
+        this.mensajes.push({descripcion:data.data.descripcion,createdAt:data.data.createdAt, usuario:{imagen: data.usuario.imagen, username: data.usuario.username}});
+      }else{
+  
+      }
+    
+
+     
+      
+    
     })
     
   }
 
 
   cargarMensajes(){
+    console.log(this.tema.id)
     var seq = this.chatProvider.getOne(this.tema.id);
     seq.subscribe((res: any) => {
 

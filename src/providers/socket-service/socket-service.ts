@@ -30,6 +30,7 @@ export class SocketServiceProvider {
       this.socket = io(this.url);
       this.socket.on('Received message', (data) => {
         observer.next(data);    
+        
       });
       return () => {
         this.socket.disconnect();

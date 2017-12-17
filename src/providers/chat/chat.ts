@@ -24,7 +24,7 @@ export class ChatProvider {
   
   }
   getOne(tema){
-    return this.api.get('mensaje?tema='+tema+'&&sort=id%20ASC');
+    return this.api.get('mensaje?tema='+tema+'');
   }
 
   private socket;
