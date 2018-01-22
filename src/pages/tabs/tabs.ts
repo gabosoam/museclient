@@ -6,6 +6,8 @@ import { Tab1Root } from '../pages';
 import { Tab2Root } from '../pages';
 import { Tab3Root } from '../pages';
 
+import {Historial2} from '../pages';
+
 @IonicPage()
 @Component({
   selector: 'page-tabs',
@@ -15,10 +17,13 @@ export class TabsPage {
   tab1Root: any = Tab1Root;
   tab2Root: any = Tab2Root;
   tab3Root: any = Tab3Root;
+  historial: any = Historial2;
 
   tab1Title = "Temas ";
-  tab2Title = "Buscar";
+  tab2Title = "Chats";
   tab3Title = "Ajustes";
+  historialTitle= "Mi historial";
+
 
   constructor(public navCtrl: NavController, public translateService: TranslateService) {
     // translateService.get(['TAB1_TITLE', 'TAB2_TITLE', 'TAB3_TITLE']).subscribe(values => {

@@ -47,6 +47,8 @@ export class ItemDetailPage {
     this.navCtrl.push('ChatPage', {
       tema: tema
     });
+
+    
   }
 
   addItem() {

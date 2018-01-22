@@ -25,8 +25,8 @@
            
                 <div class="msg-detail">
                     <div class="msg-info">
-                        <p>
-                            {{mensaje.usuario.username}}&nbsp;&nbsp;&nbsp;{{mensaje.createdAt}}</p>
+                        <p>{{mensaje.usuario.username}}</p>
+                        
                     </div>
                     <div class="msg-content">
                         <span class="triangle"></span>
@@ -42,8 +42,8 @@
     
     </ion-content>
 
-<ion-footer no-border [style.height]="showEmojiPicker ? '255px' : '55px'">
-  <ion-grid class="input-wrap">
+<ion-footer  [style.height]="showEmojiPicker ? '255px' : '55px'">
+  <ion-grid class="">
     <ion-row>
 
       <ion-col col-10>

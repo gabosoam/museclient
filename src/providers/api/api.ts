@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Api {
-  url: string = 'http://musechat.herokuapp.com/';
+  // url: string = 'http://musechat.herokuapp.com/';
+  url: string = 'https://musechat.herokuapp.com/';
 
   constructor(public http: HttpClient) {
   }

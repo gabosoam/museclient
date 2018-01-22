@@ -11,6 +11,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import * as io from 'socket.io-client';
 
 
+
 import { Items } from '../providers/items/items';
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';

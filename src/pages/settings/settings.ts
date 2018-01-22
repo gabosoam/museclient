@@ -3,6 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../../providers/providers';
+import { MyApp } from '../../app/app.component'
+import { Storage } from '@ionic/storage';
+
+
 
 
 import { Settings } from '../../providers/providers';
@@ -22,8 +26,8 @@ export class SettingsPage {
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
-  
-    form: FormGroup;
+
+  form: FormGroup;
 
 
   profileSettings = {
@@ -43,18 +47,20 @@ export class SettingsPage {
     public navParams: NavParams,
     public translate: TranslateService,
     public user: User,
-    public camera: Camera) {
+    public camera: Camera,
+    public myapp: MyApp,
+    public storage: Storage) {
 
-    
-      this.form = formBuilder.group({
-        imagen: [this.user._user.id.imagen],
-        username: [this.user._user.id.username],
-        password: [this.user._user.id.password],
-      });
+
+    this.form = formBuilder.group({
+      imagen: [this.user._user.id.imagen],
+      username: [this.user._user.id.username],
+      password: [this.user._user.id.password],
+    });
 
   }
 
-  
+
 
   ngOnChanges() {
     console.log('Ng All Changes');
@@ -62,6 +68,12 @@ export class SettingsPage {
 
   getProfileImageStyle() {
     return 'url(' + this.form.controls['imagen'].value + ')'
+  }
+  cerrar() {
+    this.storage.set('usuario', null);
+    this.myapp.openPage('WelcomePage');
+
+
   }
 
   getPicture() {

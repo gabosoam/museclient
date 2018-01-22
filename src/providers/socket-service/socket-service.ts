@@ -16,7 +16,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class SocketServiceProvider {
 
-  private url = 'http://musechat.herokuapp.com/';  
+  private url = 'https://musechat.herokuapp.com/';  
   private socket;
 
   constructor(public http: HttpClient) {

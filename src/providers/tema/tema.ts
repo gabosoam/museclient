@@ -29,6 +29,10 @@ export class TemaProvider {
     return this.api.get('tema?tipoTema='+tipoTema+'&&sort=id%20DESC');
   }
 
+  obtenerHistorico(usuario){
+    return this.api.get('mensaje/obtenerHistorico?id='+usuario+'&&sort=id%20DESC');
+  }
+
  
 
   add(tema: Tema) {

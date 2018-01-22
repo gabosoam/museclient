@@ -27,7 +27,9 @@ import { Api } from '../api/api';
 export class User {
   _user: any;
 
-  constructor(public api: Api) { }
+  constructor(public api: Api) {
+
+   }
 
   /**
    * Send a POST request to our login endpoint with the data
@@ -50,11 +52,17 @@ export class User {
     return seq;
   }
 
+  islogin() {
+    let seq = this.api.get('islogin',null).share();
+    return seq;
+  }
+
   /**
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.
    */
   signup(accountInfo: any) {
+
     let seq = this.api.post('usuario', accountInfo).share();
 
     seq.subscribe((res: any) => {

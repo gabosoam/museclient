@@ -2,16 +2,16 @@
 
   <ion-navbar>
     <ion-title>{{ item.nombre }}</ion-title>
-  
+
   </ion-navbar>
 
-  
+
 
 </ion-header>
 
 
 <ion-content>
- 
+
 
   <!-- <ion-list>
     <ion-item-sliding *ngFor="let tema of temas">
@@ -32,7 +32,7 @@
     </ion-item-sliding>
   </ion-list> -->
 
-  <ion-card  *ngFor="let tema of temas">
+  <!-- <ion-card *ngFor="let tema of temas">
     <button ion-item (click)="openItem(tema)">
       <ion-item>
         <ion-avatar item-start>
@@ -41,21 +41,79 @@
         <h2>{{tema.usuario.username}}</h2>
         <p>{{tema.createdAt}}</p>
       </ion-item>
-    
-   
-      <ion-card-content>
-        <p>{{tema.descripcion}}</p>
-      </ion-card-content>
-    
-    </button>
-    
-    </ion-card>
 
-    <ion-fab right bottom>
-      <button ion-fab color="primary"  (click)="addItem()"><ion-icon name="add" ></ion-icon></button>
+
+        <p>{{tema.descripcion}}</p>
+   
+    </button>
+
+  </ion-card> -->
+
+  <!-- <ion-list>
+      <ion-item-sliding *ngFor="let tema of temas">
+        <button ion-item (click)="openItem(tema)">
+          <ion-avatar item-start>
+            <img [src]="tema.usuario.imagen" />
+          </ion-avatar>
+          <h2>{{tema.descripcion}}</h2>
+       
+          <ion-note item-end *ngIf="item.username">{{item.username}}</ion-note>
+        </button>
+  
+        <ion-item-options>
+          <button ion-button color="success" (click)="deleteItem(item)">
+            {{ 'DELETE_BUTTON' | translate }}
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list> -->
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let tema of temas">
+      <ion-avatar item-start>
+        <img [src]="tema.usuario.imagen">
+      </ion-avatar>
+      <h2>{{tema.usuario.username}}</h2>
+      <p>{{tema.descripcion}}</p>
+
+    </ion-item>
+  </ion-list> -->
+
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let tema of temas">
+      <button ion-item (click)="openItem(tema)">
+        <ion-avatar item-start>
+          <img [src]="tema.usuario.imagen" />
+        </ion-avatar>
+        <h2>{{tema.usuario.username}}</h2>
+        <p>{{tema.descripcion}}</p>
+
+
+      </button>
+
+
+    </ion-item-sliding>
+  </ion-list>
+
+
+
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="addItem()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+
+  </ion-fab>
+
+  <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
   
     </ion-fab>
 
-  
-</ion-content>
+    
 
+
+</ion-content>
